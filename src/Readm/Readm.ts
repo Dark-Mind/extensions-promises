@@ -14,16 +14,16 @@ import {
 } from "paperback-extensions-common"
 import { parseUpdatedManga, generateSearch, parseChapterDetails, isLastPage, parseTags, parseChapters, parseHomeSections, parseMangaDetails, parseViewMore, UpdatedManga } from "./ReadmParser"
 
-const RM_DOMAIN = 'https://readm.org'
+const RM_DOMAIN = 'https://gmanga.me'
 const method = 'GET'
 
-export const ReadmInfo: SourceInfo = {
+export const GMangaInfo: SourceInfo = {
   version: '1.0.11',
-  name: 'Readm',
+  name: 'GManga',
   icon: 'icon.png',
-  author: 'Netsky',
-  authorWebsite: 'https://github.com/TheNetsky',
-  description: 'Extension that pulls manga from Readm.',
+  author: 'Dark-Mind',
+  authorWebsite: 'https://github.com/Dark-Mind',
+  description: 'Extension that pulls manga from GManga.',
   hentaiSource: false,
   websiteBaseURL: RM_DOMAIN,
   sourceTags: [
@@ -38,8 +38,8 @@ export const ReadmInfo: SourceInfo = {
   ]
 }
 
-export class Readm extends Source {
-  getMangaShareUrl(mangaId: string): string | null { return `${RM_DOMAIN}/manga/${mangaId}` }
+export class GManga extends Source {
+  getMangaShareUrl(mangaId: string): string | null { return `${RM_DOMAIN}/api/mangas/${manga.id}/releases` }
 
   async getMangaDetails(mangaId: string): Promise<Manga> {
     const request = createRequestObject({
